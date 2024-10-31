@@ -312,7 +312,10 @@ class MixpanelAnalytics {
       if (!success) {
         unsentEvents.addAll(range);
       }
-      events.removeRange(0, maxRange);
+
+      for(final item in range) {
+        events.remove(item);
+      }
     }
     if (unsentEvents.isNotEmpty) {
       events.addAll(unsentEvents);
